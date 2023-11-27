@@ -44,40 +44,16 @@ export const login = (req, res) => {
 
         const token = jwt.sign({ id: data[0].id }, "jwtkey");
 
-
         const { password, ...other } = data[0];
 
         res.setHeader('Authorization', `Bearer ${token}`);
+        console.log(token)
 
         res.cookie("access_token", token, {
             httpOnly: true,
         }).status(200).json(other);
     });
 
-    // const { username, password } = req.body;
-    // const q = "SELECT * FROM user WHERE username = ?";
-
-    // db.query(q, [username], (err, data) => {
-    //     if (err) {
-    //         return res.status(500).json(err);
-    //     }
-    //     if (data.length === 0) {
-    //         return res.status(404).json("User not found!");
-    //     }
-
-    //     const isPasswordCorrect = bcrypt.compareSync(password, data[0].password);
-
-    //     if (!isPasswordCorrect) {
-    //         return res.status(400).json("Wrong username or password");
-    //     }
-
-
-    //     // Store user ID in session
-    //     req.session.userId = data[0].id;
-
-
-    //     return res.status(200).json(other);
-    // });
 };
 
 export const logout = (req, res) => {
