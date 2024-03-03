@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className="container">
                 <div className="logo">
                     <Link to="/">
-                    <img src={Logo} alt="" style={{ width: '50px', height: '50px' }} />
+                        <img src={Logo} alt="" style={{ width: '50px', height: '50px' }} />
                     </Link>
                 </div>
                 <div className="links">
@@ -21,7 +21,9 @@ const Navbar = () => {
                     <Link className='link' to="/?cat=cinema"><h6>CINEMA</h6></Link>
                     <Link className='link' to="/?cat=design"><h6>DESIGN</h6></Link>
                     <Link className='link' to="/?cat=food"><h6>FOOD</h6></Link>
-                    <span>{currentUser?.username}</span>
+                    <Link to="/user/:userId">
+                        <span>{currentUser?.username}</span>
+                    </Link>
                     {currentUser ? (<span onClick={logout}>Logout</span>) : (<Link className='link' to="/login">Login</Link>)}
                     <span className='write'>
                         <Link to="/write" className='link'>Write</Link>

@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      await login(inputs)
+      await login(inputs);
       navigate("/")
     } catch (error) {
       if (error.response && error.response.data) {

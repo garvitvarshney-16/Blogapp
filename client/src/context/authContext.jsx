@@ -21,7 +21,7 @@ export const AuthContextProvider = ({ children }) => {
 
         // Store the token in the local storage
         localStorage.setItem("access_token", token);
-
+        
         // Set only the user data in the state
         setCurrentUser(res.data);
       } else {

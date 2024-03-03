@@ -7,6 +7,7 @@ import Single from "./pages/Single"
 import Write from "./pages/Write"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import UserProfile from "./pages/UserProfile"
 
 const Layout = () => {
   return (
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
     path: '/login',
     element: <Login />
   },
+  {
+    path: '/user/:userId',
+    element: <UserProfile />
+  }
 ])
 
 function App() {
